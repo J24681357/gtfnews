@@ -1,0 +1,27 @@
+{
+  "name": "gtfitness",
+  "version": "1.1.0",
+  "main": "index.js",
+  "restart": {
+    "include": [
+      ".js$",
+      ".json$"
+    ]
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": "12.0.0"
+  },
+  "dependencies": {
+    "discord.js": "^12.2.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

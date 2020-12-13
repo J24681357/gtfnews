@@ -1,5 +1,5 @@
-var emote = require("/app/index");
-var gtftools = require("/app/functions/misc/f_tools");
+var emote = require("/home/runner/gtfnews/index");
+var gtftools = require("/home/runner/gtfnews/functions/misc/f_tools");
 
 const Discord = require("discord.js");
 const client = new Discord.Client();

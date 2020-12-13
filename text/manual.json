@@ -7,7 +7,8 @@
         "In this Gran Turismo/Cars/Racing related server, you are able to gain points in the chat to earn new licenses (leveled roles) in GT Fitness. You can also use my custom GT Fitness bot to gain credits, exp, points, etc through multiple events!",
         "You can view your points by typing **t!rank** in the bot commands channel.",
         ":warning: You are allowed to speak English or Japanese!",
-        "Invite link: http://discord.gg/pYMYCY8"
+        "Main Invite link: http://discord.gg/pYMYCY8",
+        "Racing Team Invite Link: https://discord.gg/VSh3FEB"
       ],
       "color": "0x0151b0"
     },
@@ -43,12 +44,12 @@
     {
       "title": "__**License Rewards**__",
       "description": [
-        "__**B License | 1,000pts**__\nB License Commands\n<#367099567612755969>\n<#449962974883610630>\n<#323132515596500992>\n<#706260954249166939>\nMusic (VC)\nSend messages in <#310599531777622017>\nDyno Tags - !tag",
-        "__**A License | 2,500pts**__\nA License Commands\n<#508820132513054720>\n<#318848057531695125>\nNovice (VC)\nAbility to speak in Music (VC)",
-        "__**IC License | 5,000pts**__\nIC License Commands\n<#360871750461947905>\n<#694367801967902802>\n<#529376959239815168>\n<#644052910334017556>\nAmateur (VC)",
-        "__**IB License | 10,000pts**__\nIB License Commands\n<#451468982738878465>\n<#696488598320709633>\n<#418866147807592460>\nPro (VC)\nSend messages in <#360871750461947905>\nSend messages in <#694367801967902802>",
-        "__**IA License | 25,000pts**__\nIA License Commands\n<#361638649718374411>\n<#477349749066956840>\nEndurance (VC)\nSend messages in <#696488598320709633>",
-        "__**S License | 50,000pts**__\nS License Commands\n<#381603318193061898>\n<#665477242553630720>\nSend messages in <#361638649718374411>",
+        "__**B License | 1,000pts**__\nB License Commands\n<#367099567612755969>\n<#449962974883610630>\n<#323132515596500992>\n<#706260954249166939>\nMusic (VC)\nDyno Tags - !tag",
+        "__**A License | 2,500pts**__\nA License Commands\n<#360871750461947905>\n<#694367801967902802>\n<#318848057531695125>\n<#729936217306562570>\nNovice (VC)\nAbility to speak in Music (VC)",
+        "__**IC License | 5,000pts**__\nIC License Commands\n<#451468982738878465>\n<#529376959239815168>\n<#644052910334017556>\nAmateur (VC)",
+        "__**IB License | 10,000pts**__\nIB License Commands\n<#361638649718374411>\n<#696488598320709633>\n<#418866147807592460>\n<#748053732582752326>\nPro (VC)",
+        "__**IA License | 25,000pts**__\nIA License Commands\n<#760412129680424961>\n<#665477242553630720>\nEndurance (VC)",
+        "__**S License | 50,000pts**__\nS License Commands\n<#381603318193061898>\n<#766152572327034891>",
         "__**J License | 100,000pts**__\nJ License Commands\n<#429025543329939476>\nAccess to Audit Log in server settings\nEligible for Moderator\nEligible for Adminstrator\nGo Live Feature",
         "__**J2 License | 250,000pts**__\nHappiness"
       ],
@@ -57,7 +58,7 @@
     {
       "title": "__**Rules**__",
       "description": [
-        ":one: Discord server invites and any hefty advertisements are not allowed, except for in <#644052910334017556>.\n:warning: Smaller advertisements are allowed; however, keep it at a minimum.\n:warning: I would suggest not inviting people from <#665477242553630720> unless they meet the prerequisites above.",
+        ":one: Discord server invites and any hefty advertisements are not allowed, except for in <#644052910334017556>.\n:warning: Smaller advertisements are allowed; however, keep it at a minimum.",
         ":two: Any NSFW pictures, avatars, videos, or memes are not allowed in open lobbies or **any channel** except for lobbies with a 🔞 label.\nSome examples that aren't allowed in normal lobbies may include:\nExtreme blood/gore\nGraphic/Sexual activity\nExtremely offensive content\n\n:warning: Any other NSFW pictures from bots such as inputting rule34 and e621 in any command may result in warnings, kicks, and bans from moderators. This includes spoilers and || even more spoilers ||. Even <#508820132513054720> applies this rule.",
         ":three: Do not spam in any channel, the bot will give you a warning and a mute if you persist.\n:warning: Spam is only allowed in <#348854157698138112> and <#432667283031195648>.",
         ":four: Duplicate accounts are prohibited without logical reasons (i.e. temporary account, 2-Step authentication loss, etc).\n:warning: You will not get your points/credits/progress back.",
@@ -75,9 +76,15 @@
         ":keycap_ten: Generally, keep bot commands in <#432667283031195648>, you may get a warning from the moderation bot if you do. Some commands do have exceptions (this will be implemented soon).",
         ":one::one: Any bugs or suggestions for the GTF bot can be reported by either by pinging the owner or in <#560574424198152212>.",
         ":one::two: Read the channel descriptions from each channel. They may save you a lot of time.",
-        ":one::three: Follow Discord's Community Guildlines.",
-        ":question: **Violating any GTF rules may result first with some warnings. If any more problems continues, this may result in a mute, kick, ban, any removal of Tatsumaki points, or credits.**", 
-        "**JOIN THE FITNESS RACE!**"
+        ":one::three: Follow Discord's Community Guildlines.\n:warning: You will be kicked/banned from the server if you are under 13 years old.",
+        ":question: **Violating any GTF rules may result first with some warnings. If any more problems continues, this may result in a mute, kick, ban, any removal of Tatsumaki points, or credits.**"
+      ],
+      "color": "0x0151b0"
+    },{
+      "title": "__**Etiquettes**__",
+      "description": [
+        "<#508820132513054720>\nIn this lobby, generally many memes such as edgy, dank, funny content can be posted here except for the following:\n- NSFW content (belongs in #freedom-lobby)\n- Dark humor (especially involving death or intentional hatred against a certain group) (belongs in #freedom-lobby)\n- Sensitive/Offensive Content (belongs practically nowhere)\n\n:warning: If a certain meme gets too controversial from others, mods are allowed to delete the meme and/or provide warnings.",
+        "<#748053732582752326>\nThis is a resource/discussion for any glitches/bugs/exploits you can discover across racing games. Other games that aren't related to racing are also open. Even if you think if the certain action may not be a glitch, they can also be posted here for discussions. The following posts will not be allowed and will be deleted and/or lead to warnings:\n- NSFW content\n- Memes that does not present any in-game glitches\n- Mods/Hacks/Addons that does not result in-game glitches", "**JOIN THE FITNESS RACE!**"
       ],
       "color": "0x0151b0"
     },

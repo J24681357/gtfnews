@@ -2,25 +2,36 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 var gtffile = process.env;
 ////////////////////////////////////////////////////
-var extra = require("/app/functions/misc/f_extras");
-var gtfuser = require("/app/index");
-var emote = require("/app/index");
+var extra = require("/home/runner/gtfnews/functions/misc/f_extras");
+var gtfuser = require("/home/runner/gtfnews/index");
+var emote = require("/home/runner/gtfnews/index");
 var fs = require("fs");
-var gtftools = require("/app/functions/misc/f_tools")
+var gtftools = require("/home/runner/gtfnews/functions/misc/f_tools")
+var gtfbot = JSON.parse(fs.readFileSync("./users/botconfig.json", "utf8"));
+module.exports.gtfbotconfig = gtfbot;
+
 
 client.commands = new Discord.Collection();
 var date = new Date();
 
-var gtfbot = JSON.parse(fs.readFileSync("./users/botconfig.json", "utf8"));
-module.exports.gtfbotconfig = gtfbot;
 
 // Server Settings
 var executions = 0;
 
-https://gtswiki.gt-beginners.net/decal/?searchword=gts&type=0&noid=1
+const express = require('express');
+const server = express();
+server.all('/', (req, res) => {
+  res.send('Your bot is alive!')
+})
 
+server.listen(3000, () => { console.log("Server is Ready!") });
+
+client.on('rateLimit', (info) => {
+  console.log(info)
+})
 
 client.on("ready", () => {
+
   module.exports.update = client.emojis.cache
     .get("419605168510992394")
     .toString();
@@ -61,9 +72,12 @@ client.on("ready", () => {
   module.exports.c242r3 = client.emojis.cache
     .get("674355507955499008")
     .toString();
-  
+
   module.exports.c342 = client.emojis.cache
     .get("673938767190687745")
+    .toString();
+  module.exports.hi = client.emojis.cache
+    .get("434455411408502784")
     .toString();
 
   module.exports.bronze = client.emojis.cache
@@ -85,7 +99,7 @@ client.on("ready", () => {
   module.exports.bronzemedal = client.emojis.cache
     .get("672715512937054208")
     .toString();
-  module.exports.diamondmedal = client.emojis.cache
+  module.exports.platinummedal = client.emojis.cache
     .get("683880404855291918")
     .toString();
 
@@ -162,7 +176,7 @@ client.on("ready", () => {
   module.exports.fpp = client.emojis.cache.get("642908988819636254").toString();
 
   module.exports.jaythefox = client.emojis.cache
-    .get("561743692059246592")
+    .get("733154452047134812")
     .toString();
   module.exports.gtlogowhite = client.emojis.cache
     .get("682139679919046667")
@@ -171,16 +185,15 @@ client.on("ready", () => {
     .get("485339455339888640")
     .toString();
 
-  var emote = require("/app/index");
+  var emote = require("/home/runner/gtfnews/index");
 
   extra.loadfeeds(client);
-
   const http = require('http');
-const express = require('express');
-const app = express();
+  const express = require('express');
+  const app = express();
   console.log("d")
   app.get("/", (request, response) => {
-  console.log(Date.now() + " Ping Received");
+    console.log(Date.now() + " Ping Received");
     response.sendStatus(200);
   });
   app.listen(process.env.PORT);
@@ -188,99 +201,106 @@ const app = express();
     http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
     console.log("Port")
   }, 280000);
-  
 
 
-  console.log(`Logged in as ${client.user.tag}!`);
-});
+  extra.caremotes(client);
 
+  extra.gtfstats(1, client)
+  setInterval(function() {
+    extra.gtfstats(1, client)
+  }, 5 * 60 * 1000)
+
+})
 
 client.on("message", msg => {
   function activate() {
-  var author = msg.author.id;
-  var member = msg.guild.members.cache.get(author);
 
-  if (msg.content.includes("@someone") & msg.attachments.size == 0) {
-    var usernames = []
-    msg.guild.members.fetch().then(r => {
-      r.forEach(r => {
-      usernames.push(r.user.username)
+    extra.hi(msg);
+
+    extra.checkgold(client, msg);
+    var author = msg.author.id;
+    var member = msg.guild.members.cache.get(author);
+
+    if (msg.content.includes("@someone") & msg.attachments.size == 0) {
+      var usernames = []
+      msg.guild.members.fetch().then(r => {
+        r.forEach(r => {
+          usernames.push(r.user.username)
+        })
+
+        msg.channel.send(msg.content.replace(/@someone/, "**" + usernames[Math.floor(Math.random() * usernames.length)] + "**"))
       })
-      
-      msg.channel.send(msg.content.replace(/@someone/, "**" + usernames[Math.floor(Math.random() * usernames.length)] + "**"))
-    })
-    
-  }
-  //e
 
-  //gallaries
-  extra.galleryreacts(msg);
-  //emotes
-  extra.checkgold(client, msg);
-  //gtscaremotes
-  extra.caremotes(client);
+    }
+    //e
+
+    //gallaries
+    extra.galleryreacts(msg);
+    //emotes
+    //hi
   }
   gtfuser.gtfbotconfig["executions"]++;
-      fs.writeFile(
-      "/app/users/botconfig.json",
-      JSON.stringify(gtfuser.gtfbotconfig),
-      function(err, result) {
-        if (err) console.log("error", err);
-      }
-    );
-    if (gtfuser.gtfbotconfig["executions"] >= 3) {
-      console.log("WAITING");
-      setTimeout(function() {
-        activate(),
-          1000 * gtfuser.gtfbotconfig["executions"];
-        gtfuser.gtfbotconfig["executions"]--;
-            fs.writeFile(
-      "/app/users/botconfig.json",
-      JSON.stringify(gtfuser.gtfbotconfig),
-      function(err, result) {
-        if (err) console.log("error", err);
-      }
-    );
-      });
-    } else {
-      activate()
-      if (gtfuser.gtfbotconfig["executions"] == 1) {
-        setTimeout(function() {
-          gtfuser.gtfbotconfig["executions"] = 0
-          fs.writeFile(
-      "/app/users/botconfig.json",
-      JSON.stringify(gtfuser.gtfbotconfig),
-      function(err, result) {
-        if (err) console.log("error", err);
-      }
-    );
-        }, 5000);
-      }
+  fs.writeFileSync(
+    "/home/runner/gtfnews/users/botconfig.json",
+    JSON.stringify(gtfuser.gtfbotconfig),
+    function(err, result) {
+      if (err) console.log("error", err);
     }
+  );
+  if (gtfuser.gtfbotconfig["executions"] >= 3) {
+    console.log("WAITING");
+    setTimeout(function() {
+      activate(),
+        1000 * gtfuser.gtfbotconfig["executions"];
+      gtfuser.gtfbotconfig["executions"]--;
+      fs.writeFileSync(
+        "/home/runner/gtfnews/users/botconfig.json",
+        JSON.stringify(gtfuser.gtfbotconfig),
+        function(err, result) {
+          if (err) console.log("error", err);
+        }
+      );
+    });
+  } else {
+    activate()
+    if (gtfuser.gtfbotconfig["executions"] == 1) {
+      setTimeout(function() {
+        gtfuser.gtfbotconfig["executions"] = 0
+        fs.writeFileSync(
+          "/home/runner/gtfnews/users/botconfig.json",
+          JSON.stringify(gtfuser.gtfbotconfig),
+          function(err, result) {
+            if (err) console.log("error", err);
+          }
+        );
+      }, 5000);
+    }
+  }
 });
 
-client.login(process.env.SECRET).then(function() {
-   gtfuser.gtfbotconfig["executions"] = 0;
-      fs.writeFile(
-      "/app/users/botconfig.json",
-      JSON.stringify(gtfuser.gtfbotconfig),
-      function(err, result) {
-        if (err) console.log("error", err);
-      }
-    );
-  setTimeout(function() {
-    
 
-    extra.test(client.guilds.cache.get("239493425131552778"))
+client.login(process.env.SECRET).then(function() {
+  gtfuser.gtfbotconfig["executions"] = 0;
+  fs.writeFileSync(
+    "/home/runner/gtfnews/users/botconfig.json",
+    JSON.stringify(gtfuser.gtfbotconfig),
+    function(err, result) {
+      if (err) console.log("error", err);
+    }
+  );
+  setTimeout(function() {
+
+
+    //extra.test(client.guilds.cache.get("239493425131552778"))
     gtftools.interval(function() {
       extra.colorpickerjlicenseemotes(client);
-    }, 2000, 1) 
+    }, 2000, 1)
     gtftools.interval(function() {
       extra.settingsemotes(client);;
-    }, 4000, 1) 
+    }, 4000, 1)
     gtftools.interval(function() {
       extra.updatemanual(client);
-    }, 6000, 1) 
-    
+    }, 6000, 1)
+
   }, 2000);
 });

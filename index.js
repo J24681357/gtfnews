@@ -10,7 +10,6 @@ var gtftools = require("/home/runner/gtfnews/functions/misc/f_tools")
 var gtfbot = JSON.parse(fs.readFileSync("./users/botconfig.json", "utf8"));
 module.exports.gtfbotconfig = gtfbot;
 
-
 client.commands = new Discord.Collection();
 var date = new Date();
 
@@ -27,7 +26,7 @@ server.all('/', (req, res) => {
 server.listen(3000, () => { console.log("Server is Ready!") });
 
 client.on('rateLimit', (info) => {
-  console.log(info)
+  client.users.cache.get("237450759233339393").send("**RATE LIMIT DETECTED (NEWS BOT)**" + "\n\n" + JSON.stringify(info))
 })
 
 client.on("ready", () => {
@@ -41,41 +40,7 @@ client.on("ready", () => {
   module.exports.transparent = client.emojis.cache
     .get("666878765552369684")
     .toString();
-  module.exports.s1 = client.emojis.cache.get("666878765552369684").toString();
-  module.exports.s1r1 = client.emojis.cache
-    .get("674172865087799296")
-    .toString();
-
-  module.exports.s2 = client.emojis.cache.get("673749991940161546").toString();
-  module.exports.s2r1 = client.emojis.cache
-    .get("674172864555122709")
-    .toString();
-
-  module.exports.s3 = client.emojis.cache.get("673749992007270420").toString();
-  module.exports.s3r1 = client.emojis.cache
-    .get("674172864890535936")
-    .toString();
-
-  module.exports.c142 = client.emojis.cache
-    .get("673938767316516880")
-    .toString();
-
-  module.exports.c242 = client.emojis.cache
-    .get("673938767329099806")
-    .toString();
-  module.exports.c242r1 = client.emojis.cache
-    .get("674130136865701888")
-    .toString();
-  module.exports.c242r2 = client.emojis.cache
-    .get("674355507867418654")
-    .toString();
-  module.exports.c242r3 = client.emojis.cache
-    .get("674355507955499008")
-    .toString();
-
-  module.exports.c342 = client.emojis.cache
-    .get("673938767190687745")
-    .toString();
+ 
   module.exports.hi = client.emojis.cache
     .get("434455411408502784")
     .toString();
@@ -135,9 +100,6 @@ client.on("ready", () => {
     .get("695112293167661126")
     .toString();
 
-  module.exports.greensquare = client.emojis.cache
-    .get("648557360587079740")
-    .toString();
 
   module.exports.yes = client.emojis.cache.get("646994014658232320").toString();
   module.exports.tracklogo = client.emojis.cache
@@ -191,9 +153,7 @@ client.on("ready", () => {
   const http = require('http');
   const express = require('express');
   const app = express();
-  console.log("d")
   app.get("/", (request, response) => {
-    console.log(Date.now() + " Ping Received");
     response.sendStatus(200);
   });
   app.listen(process.env.PORT);
@@ -205,16 +165,34 @@ client.on("ready", () => {
 
   extra.caremotes(client);
 
-  extra.gtfstats(1, client)
   setInterval(function() {
     extra.gtfstats(1, client)
   }, 5 * 60 * 1000)
+  setInterval(function() {
+    extra.gtpstats("GTPlanet: GT7 Active Threads", "https://www.gtplanet.net/forum/board/gran-turismo-7/",1, client)
+  }, 6 * 60 * 1000)
+  setInterval(function() {
+    extra.gtpstats("GTPlanet: GT Sport Active Threads", "https://www.gtplanet.net/forum/board/gran-turismo-sport/", 2, client)
+  }, 370000)
+    setInterval(function() {
+    extra.gtpstats("GTPlanet: Auto News Active Threads", "https://www.gtplanet.net/forum/board/auto-news.103/", 3, client)
+  }, 380000)
+      setInterval(function() {
+    extra.gtpstats("GTPlanet: Cars In General Active Threads", "https://www.gtplanet.net/forum/board/cars-in-general.7/", 4, client)
+  }, 390000) 
+  setInterval(function() {
+    extra.gtpstats("GTPlanet: Motorsports Active Threads", "https://www.gtplanet.net/forum/board/motorsport.15/", 5, client)
+  }, 400000)
+
+
 
 })
 
 client.on("message", msg => {
   function activate() {
-
+  if (msg.guild === null) {
+    return
+  } 
     extra.hi(msg);
 
     extra.checkgold(client, msg);

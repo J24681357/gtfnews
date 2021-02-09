@@ -62,7 +62,7 @@ module.exports.updatemanual = function(client) {
     2000,
     size
   );
-  console.log('Manual Updated.');
+  console.log('Manual Updating....');
 };
 
 module.exports.settingsemotes = function(client) {
@@ -90,11 +90,11 @@ module.exports.settingsemotes = function(client) {
 :question: You can add your own roles with the reactions below. You can mention these roles for those who have these consoles (or planning on).
 :question: Role is added successfully if it toggles back to its previous number.**`;
 
-  extra.message(client, title, message, '', '', '437070477157072898', reactions, index);
-  index++
+  setTimeout(function() {extra.message(client, title, message, '', '', '437070477157072898', reactions, 1)}, 1000);
 
-  var title = ':video_game: __**Games**__';
-  var reactions = [
+
+  var title2 = ':video_game: __**Games**__';
+  var reactions2 = [
     ['0️⃣', 'Assetto Corsa Competizione'],
     ['1️⃣', 'Assetto Corsa'],
     ['2️⃣', 'Burnout'],
@@ -113,7 +113,7 @@ module.exports.settingsemotes = function(client) {
     ['🇪', 'rFactor 1'],
     ['🇫', 'The Crew 2']
   ];
-  var message = `**:zero: Assetto Corsa Competizione (Unlocks <#560741220213587968>)
+  var message2 = `**:zero: Assetto Corsa Competizione (Unlocks <#560741220213587968>)
 :one: Assetto Corsa (Unlocks <#560741220213587968>)
 :two: Burnout (Unlocks <#560741220213587968>)
 :three: BeamNG Drive (Unlocks <#560741220213587968>)
@@ -134,36 +134,30 @@ module.exports.settingsemotes = function(client) {
 :question: You can add your own roles with the reactions below. You can mention these roles for those who have these games.
 :question: Role is added successfully if it toggles back to its previous number.**`;
 
-  extra.message(client, title, message, '', '', '437070477157072898', reactions, index);
-  index++;
-  title = '__**Channels**__';
-  reactions = [['0️⃣', '🔞-enabled'], ['🦊', '🦊-enabled'], ['🚙', '🚙-enabled'], ['1️⃣', '🤖📅-disabled'], ['2️⃣', '🏁-disabled'], ['3️⃣', '⚙-disabled'], ['📊', '📊-enabled']];
-  message = `**:zero: Enable <#755468331074453710>
-:fox: Enable <#336262448552083456>
+  setTimeout(function() {extra.message(client, title2, message2, '', '', '437070477157072898', reactions2, 2)}, 2000)
+  var title3 = '__**Channels**__';
+  var reactions3 = [['🔞', '🔞-enabled'], ['🚙', '🚙-enabled'], ['1️⃣', '🏁-disabled'], ['2️⃣', '⚙-disabled'], ['📊', '📊-enabled']];
+  var message3 = `**🔞 Enable 18+ Channels
 :blue_car: Enable <#563191263650775052>
-:one: Disable <#619057599882461184>
-:two: Disable <#432667283031195648> and <#687872420933271577>
-:three: Disable <#327526878791598080>
+:one: Disable <#432667283031195648> & <#687872420933271577>
+:two: Disable <#327526878791598080>
 📊 Enable GTF Stats
 
 :question: These are some text channels/categories that you can enable/disable in GT Fitness.
 :question: Role is added successfully if it toggles back to its previous number.**`;
 
-  extra.message(client, title, message, '', '', '437070477157072898', reactions, index);
-  index++;
-  title = '__**Miscellaneous**__';
-  reactions = [['🗄', 'Archives'], ['📅', 'Announcements'], ['🏁', 'Bot Updates'], ['🏆', '!dw Mode'], ['🎉', 'Seasonal Events']];
-  message = `**🗄 Archives - Archives of older text channels in GT Fitness. (Unlocks 🗄 Archive Server Category)
+  setTimeout(function() {extra.message(client, title3, message3, '', '', '437070477157072898', reactions3, 3)}, 3000)
+  var title4 = '__**Miscellaneous**__';
+  var reactions4 = [['🗄', 'Archives'], ['📅', 'Announcements'], ['🏁', 'Bot Updates'], ['🏆', '!dw Mode']];
+  var message4 = `**🗄 Archives - Archives of older text channels in GT Fitness. (Unlocks 🗄 Archive Server Category)
 :date: Announcements - Announcements about GT Fitness server.
 :checkered_flag: Bot Updates - Updates of the GT Fitness server bot.
-:trophy: Daily Workout Mode - Notifications for the !dw challenge command.
-:tada: Seasonal Events - Subscribe for ongoing events in GT Fitness. (Unlocks <#489144683528978463>)
+:trophy: Daily Workout Mode - Notifications for the !dw challenge command. (This is unavailable)
 
 :question: These are miscellaneous settings in GT Fitness.
 :question: Role is added successfully if it toggles back to its previous number.**`;
 
-  extra.message(client, title, message, '', '', '437070477157072898', reactions, index);
-  index++;
+  setTimeout(function(){extra.message(client, title4, message4, '', '', '437070477157072898', reactions4, 4)}, 4000)
 };
 
 module.exports.colorpickerjlicenseemotes = function(client) {
@@ -236,7 +230,7 @@ module.exports.loadfeeds = function(client) {
         );
     }
 
-    extra.feed('gtpnews', 'http://feeds.feedburner.com/gtplanet', gtplist, 'GTPlanet', '310599531777622017', 9, client, 'http', true);
+    extra.feed('gtpnews', 'https://www.gtplanet.net/feed/', gtplist, 'GTPlanet', '310599531777622017', 9, client, 'https', true);
   /*
   
   function gtplist(data) {
@@ -315,7 +309,7 @@ module.exports.loadfeeds = function(client) {
         );
     }
 
-    extra.feed('gtpnews', 'http://feeds.feedburner.com/gtplanet', gtplist, 'GTPlanet', '310599531777622017', 9, client, 'http', true);
+    extra.feed('gtpnews', 'https://www.gtplanet.net/feed/', gtplist, 'GTPlanet', '310599531777622017', 9, client, 'https', true);
   }, 660000);
 
   setInterval(function() {
@@ -340,8 +334,18 @@ module.exports.loadfeeds = function(client) {
 };
 
 module.exports.galleryreacts = function(msg) {
+    if (msg.guild === null) {
+    return
+  }
   if (msg.channel.name.includes('meme') && (msg.attachments.size >= 1 || msg.content.includes("https://") || msg.content.includes("http://"))) {
-    msg.react("👍").then(() => msg.react("👎")).catch(() => console.error('One of the emojis failed to react.'));
+    msg.react("👍").then(() => setTimeout(function (){
+      msg.react("👎")
+      },1000)).catch(() => console.error('One of the emojis failed to react.'));
+      return
+  }
+  if (msg.channel.name.includes('music') && (msg.attachments.size >= 1 || msg.content.includes("https://") || msg.content.includes("http://"))) {
+    msg.react("🎵")
+    return
   }
   if (msg.channel.name.includes('furry') && msg.attachments.size >= 1) {
     var list = ["❤","🧡","💛","💚","💙","💜","🤎","🖤","🤍"]
@@ -441,6 +445,9 @@ var funcr = function() {
 }
 
 module.exports.checkgold = function(client, message) {
+  if (message.guild === null) {
+    return
+  }
   var activated = 0;
   var chance = gtftools.randomInt(1, 200);
     if (message.channel.name.includes('debug')) {
@@ -637,14 +644,16 @@ module.exports.message = function(client, title, text, color, image, channelid, 
             reactions.length
           );
         }
-
+          var doit = true
         setTimeout(function() {
           var filters = function(index) {
             var filterzero = (reaction, user) => reaction.emoji.name === reactions[index][0];
             const filter11 = msg.createReactionCollector(filterzero, { timer: 1000 });
 
+
             filter11.on('collect', r => {
               try {
+                if (doit) {
                 for (const user of r.users.cache.values()) {
                   if (user.id == gtffile.USERID) {
                     continue;
@@ -662,6 +671,19 @@ module.exports.message = function(client, title, text, color, image, channelid, 
                   } else {
                     useri.roles.add(msg.guild.roles.cache.find(r => r.name === "Consoles ===============================")).catch(console.error)
                   }
+                  if (useri.guild.roles.cache.some(r => r.name === "Games ")) {
+                  } else {
+                    useri.roles.add(msg.guild.roles.cache.find(r => r.name === "Games ================================")).catch(console.error)
+                  }
+                  if (useri.guild.roles.cache.some(r => r.name === "Settings ")) {
+                  } else {
+                    useri.roles.add(msg.guild.roles.cache.find(r => r.name === "Settings ================================")).catch(console.error)
+                  }
+                  if (useri.guild.roles.cache.some(r => r.name === "GTF Items ")) {
+                  } else {
+                    useri.roles.add(msg.guild.roles.cache.find(r => r.name === "GTF Items ==============================")).catch(console.error)
+                  }
+
 
                   if (useri.roles.cache.find(r => r.name === reactions[index][1])) {
                     useri.roles.remove(role).catch(console.error);
@@ -669,9 +691,16 @@ module.exports.message = function(client, title, text, color, image, channelid, 
                     useri.roles.add(role).catch(console.error);
                   }
                 }
+                
+              doit = false
+              var timer = setTimeout(function() {
+            doit = true
+          }, 5000)
+              } 
               } catch (error) {
                 console.error(error);
-              }
+            }
+
             });
           };
           for (var i = 0; i < reactions.length; i++) {
@@ -699,28 +728,29 @@ module.exports.gtfstats = function(list, client) {
     var j2 = 0
   ids.filter(function(x) {
     var user = server.members.cache.get(x)
-    var sum = !user.roles.cache.find(r => (r.name == "B License")) + !user.roles.cache.find(r => (r.name == "A License")) + !user.roles.cache.find(r => (r.name == "IC License")) + !user.roles.cache.find(r => (r.name == "IB License")) + !user.roles.cache.find(r => (r.name == "IA License")) + !user.roles.cache.find(r => (r.name == "S License")) + !user.roles.cache.find(r => (r.name == "J License")) + !user.roles.cache.find(r => (r.name == "J2 License"))
-    if (sum == 8) {
+    var sum = Boolean(user.roles.cache.find(r => (r.name == "N ovice"))) + Boolean(user.roles.cache.find(r => (r.name == "B License"))) + Boolean(user.roles.cache.find(r => (r.name == "A License")))  + Boolean(user.roles.cache.find(r => (r.name == "IC License"))) + Boolean(user.roles.cache.find(r => (r.name == "IB License")))
+ + Boolean(user.roles.cache.find(r => (r.name == "IA License"))) + Boolean(user.roles.cache.find(r => (r.name == "S License"))) + Boolean(user.roles.cache.find(r => (r.name == "J License"))) + Boolean(user.roles.cache.find(r => (r.name == "J2 License")))
+    if (sum == 1) {
       novice++
-    } else if (sum == 7) {
+    } else if (sum == 2) {
       b++
-    } else if (sum == 6) {
+    } else if (sum == 3) {
       a++
-    } else if (sum == 5) {
-      ic++
     } else if (sum == 4) {
+      ic++
+    } else if (sum == 5) {
       ib++
     } 
-     else if (sum == 3) {
+     else if (sum == 6) {
       ia++
     } 
-     else if (sum == 2) {
+     else if (sum == 7) {
       s++
     } 
-     else if (sum == 1) {
+     else if (sum == 8) {
       j++
     } 
-     else if (sum == 0) {
+     else if (sum == 9) {
       j2++
     } else {   
       return false
@@ -781,3 +811,34 @@ module.exports.hi = function(msg) {
     return
   }
 };
+module.exports.gtpstats = function(name, url, index, client) {
+  console.log("GTP Stats Updated!")
+var axios = require("axios")
+    axios.get(url).then((response) => {
+      var data = response["data"]
+    var usernames = data.split("<a href=\"members").map(x=> x.split("</span></a></dd>\n")[0]).filter(x=> x.includes("title=\"Thread starter\"")).map(function(x) {
+      var name = x.split("dir=\"auto\" title=\"Thread starter\">")[1].split("</a><span")[0]
+      return name
+    }).splice(2,10)
+
+  var gtp = data.split("<h3 class=\"title\">").map(x => x.split("</h3>")[0]).filter(x=>x.includes("data-previewUrl=")).map(function(x){
+    var name = x.split("data-previewUrl=\"\">")[1].split("</a>")[0]
+    var link = x.split("<a href=\"")[1].split("\" t")[0]
+    return [name.replace(/&quot;/g, '"').replace(/&amp;/g, "&"), "https://www.gtplanet.net/forum/" + link]
+  }).splice(2,10)
+  first(usernames, gtp)
+   })
+  
+  function first(usernames, gtp) {
+    var threads = gtp.map(x => "[" + x[0] + "](" + x[1] + ")")
+    var desc = threads.map(function(e, i) {
+  return [e, usernames[i]].join("\n OP: ");
+})
+    var currentdate = new Date(); 
+var datetime = "**Updated " + (currentdate.getUTCMonth()+1) + "/"
+                +   currentdate.getUTCDate() + "/" 
+                + currentdate.getUTCFullYear() + "**"
+    desc.push("\n" + datetime)
+  extra.message(client, "__**" + name + "**__", desc.join("\n"), "0x808080", "", '802245013287206942', [], index);
+  }
+}

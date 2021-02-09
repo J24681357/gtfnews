@@ -13,13 +13,6 @@
       "color": "0x0151b0"
     },
     {
-      "title": "__**Start Your GTF Career!**__",
-      "description": [
-        "Chat across the GTF channels, find settings of what's best for you, use **!home** to start your GTF career with the custom GTF bot!"
-      ],
-      "color": "0x0151b0"
-    },
-    {
       "title": "__**Reminder: This Is A Gran Turismo Server**__",
       "description": [
         "If you do not have interest in Gran Turismo, racing games, or cars, you will be asked to leave the server."
@@ -46,8 +39,8 @@
       "description": [
         "__**B License | 1,000pts**__\nB License Commands\n<#367099567612755969>\n<#449962974883610630>\n<#323132515596500992>\n<#706260954249166939>\nMusic (VC)\nDyno Tags - !tag",
         "__**A License | 2,500pts**__\nA License Commands\n<#360871750461947905>\n<#694367801967902802>\n<#318848057531695125>\n<#729936217306562570>\nNovice (VC)\nAbility to speak in Music (VC)",
-        "__**IC License | 5,000pts**__\nIC License Commands\n<#451468982738878465>\n<#529376959239815168>\n<#644052910334017556>\nAmateur (VC)",
-        "__**IB License | 10,000pts**__\nIB License Commands\n<#361638649718374411>\n<#696488598320709633>\n<#418866147807592460>\n<#748053732582752326>\nPro (VC)",
+        "__**IC License | 5,000pts**__\nIC License Commands\n<#802245013287206942>\n<#451468982738878465>\n<#529376959239815168>\nAdvertise in <#644052910334017556>\nAmateur (VC)",
+        "__**IB License | 10,000pts**__\nIB License Commands\n<#361638649718374411>\n<#696488598320709633>\n<#748053732582752326>\nPro (VC)",
         "__**IA License | 25,000pts**__\nIA License Commands\n<#760412129680424961>\n<#665477242553630720>\nEndurance (VC)",
         "__**S License | 50,000pts**__\nS License Commands\n<#381603318193061898>\n<#766152572327034891>",
         "__**J License | 100,000pts**__\nJ License Commands\n<#429025543329939476>\nAccess to Audit Log in server settings\nEligible for Moderator\nEligible for Adminstrator\nGo Live Feature",

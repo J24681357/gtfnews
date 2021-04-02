@@ -231,4 +231,10 @@ module.exports.createreactions = function(emojilist, msg, id) {
     }
   }
 }
+module.exports.betweenInt = function(number, min, max) {
+  if (isNaN(number)) {
+    return false
+  }
+  return (parseInt(number) >= min && parseInt(number) <= max)
+}
 //////

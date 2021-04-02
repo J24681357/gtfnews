@@ -37,7 +37,7 @@
     {
       "title": "__**License Rewards**__",
       "description": [
-        "__**B License | 1,000pts**__\nB License Commands\n<#367099567612755969>\n<#449962974883610630>\n<#323132515596500992>\n<#706260954249166939>\nMusic (VC)\nDyno Tags - !tag",
+        "__**B License | 1,000pts**__\nB License Commands\n<#367099567612755969>\n<#824107462814728202>\n<#449962974883610630>\n<#323132515596500992>\n<#706260954249166939>\nMusic (VC)\nDyno Tags - !tag",
         "__**A License | 2,500pts**__\nA License Commands\n<#360871750461947905>\n<#694367801967902802>\n<#318848057531695125>\n<#729936217306562570>\nNovice (VC)\nAbility to speak in Music (VC)",
         "__**IC License | 5,000pts**__\nIC License Commands\n<#802245013287206942>\n<#451468982738878465>\n<#529376959239815168>\nAdvertise in <#644052910334017556>\nAmateur (VC)",
         "__**IB License | 10,000pts**__\nIB License Commands\n<#361638649718374411>\n<#696488598320709633>\n<#748053732582752326>\nPro (VC)",
@@ -48,29 +48,30 @@
       ],
       "color": "0x0151b0"
     },
-    {
-      "title": "__**Rules**__",
+   {"title": "__**Rules**__",
       "description": [
-        ":one: Discord server invites and any hefty advertisements are not allowed, except for in <#644052910334017556>.\n:warning: Smaller advertisements are allowed; however, keep it at a minimum.",
-        ":two: Any NSFW pictures, avatars, videos, or memes are not allowed in open lobbies or **any channel** except for lobbies with a 🔞 label.\nSome examples that aren't allowed in normal lobbies may include:\nExtreme blood/gore\nGraphic/Sexual activity\nExtremely offensive content\n\n:warning: Any other NSFW pictures from bots such as inputting rule34 and e621 in any command may result in warnings, kicks, and bans from moderators. This includes spoilers and || even more spoilers ||. Even <#508820132513054720> applies this rule.",
-        ":three: Do not spam in any channel, the bot will give you a warning and a mute if you persist.\n:warning: Spam is only allowed in <#348854157698138112> and <#432667283031195648>.",
-        ":four: Duplicate accounts are prohibited without logical reasons (i.e. temporary account, 2-Step authentication loss, etc).\n:warning: You will not get your points/credits/progress back.",
-        ":five: Once you have gaming roles, you commit of any pings by GTF members. Remove them if it bothers you.\n:warning: Do not spam roles either because rule 3."
+        ":one: __Minimize Advertisements__\nDiscord server invites and big advertisements are not allowed, except for in <#644052910334017556>.\n:warning: Smaller advertisements are allowed; but, keep it at a minimum.",
+        ":two: __No NSFW Content In Channels__\nNSFW not allowed in open lobbies or **any channel** except for channels with a 🔞 label. Some NSFW examples are:\n- Extreme blood/gore\n- Graphic/Sexual activity\n- Extremely offensive content\n- Other NSFW conversations/pictures\n:warning: Spoilers also applies to this rule. ||don't even try|| Even <#508820132513054720> applies this rule. Even your avatar applies to this rule.",
+":three: __No Politics In Channels__\nFor discussing controversial news/politics, use <#679590180742496361>.",
+        ":four: __No Spamming__\nThe moderation bot will give you a warning, and then a mute if you persist.\n:warning: Spam is allowed in <#348854157698138112> and <#432667283031195648>.",
+        ":five: __No Duplicate Accounts__\nThey are prohibited without logical reasons (i.e. temporary account, 2-Step authentication loss, etc).\n:warning: You will not get your points/credits/progress back.",
+        ":six: __No Account Sharing__\nSharing account information publicly in any channel is prohibited. DMs are okay.",
+        ":seven: __Gaming Role Pings__\nOnce you have gaming roles, you commit of any pings by GTF members. Remove them if it bothers you.\n:warning: Do not spam mention roles either because Rule 4.",
+        ":eight: __Drama__\nLimit the amount of drama in lobbies (unless for satirical purposes). Any disrespect or ignorance against the rules will be consequenced."
       ],
       "color": "0x0151b0"
     },
-    {
+        {
       "title": "__**Rules - Part 2**__",
       "description": [
-        ":six: For any serious conversations, vents, or very controversial news/politics, use <#679590180742496361>.\n:warning: Any disrespectful jokes (or any jokes that may deem hateful or offensive for most) in this channel may result in an immediate kick or ban.",
-        ":seven: Respect each other. Enough said.\n:warning: Any complaints can be reported by pinging Moderator or Adminstrator roles.",
-        ":eight: Limit the amount of drama in lobbies (unless for satirical purposes). Any disrespect or ignorance against the rules may result in mutes, kicks, or bans.",
-        ":nine: When you are muted, **do not rejoin the server to avoid a mute.** You will have an automatic temporary/permanent ban.",
-        ":keycap_ten: Generally, keep bot commands in <#432667283031195648>, you may get a warning from the moderation bot if you do. Some commands do have exceptions (this will be implemented soon).",
-        ":one::one: Any bugs or suggestions for the GTF bot can be reported by either by pinging the owner or in <#560574424198152212>.",
-        ":one::two: Read the channel descriptions from each channel. They may save you a lot of time.",
-        ":one::three: Follow Discord's Community Guildlines.\n:warning: You will be kicked/banned from the server if you are under 13 years old.",
-        ":question: **Violating any GTF rules may result first with some warnings. If any more problems continues, this may result in a mute, kick, ban, any removal of Tatsumaki points, or credits.**"
+":nine: __No Offensive/Racial Slurs In Usernames__\nYou will be asked to change your nickname if your username is too offense (such as both N word terms). If not, part of your username will be censored.",
+        ":keycap_ten: __No Mute Rejoins__\nWhen you are muted, **do not rejoin the server to avoid a mute.** You will have an automatic temporary/permanent ban.",
+        ":one::one: __Channel Descriptions__\nRead the channel descriptions from each channel. They may save you a lot of time.",
+        ":one::two: __R E S P E C T__\nRespect each other and people's backgrounds. Enough said.\n:warning: Any complaints can be reported by pinging Moderator or Adminstrator roles.",
+        ":one::three: __Moderators__\nListen to moderators when they are doing their duties. Respect the moderators' orders or you may receive warnings.",
+ ":one::four: __Disboard, Public Server Listings, etc__\nDo not add this server to public server listings such as Disboard and other non-car related advertisement threads such as r/DiscordServers. This will result in an immediate kick/ban and the server link will become invalid.",
+        ":one::five: __Discord Community Guildlines Apply Here!__\n:warning: You will be kicked/banned from the server if you are under 13 years old.",
+        ":question: **Violating important GTF rules may result first with some warnings. If any more problems continues, this may result in a mute, kick, ban, or other consequences.**"
       ],
       "color": "0x0151b0"
     },{
@@ -79,179 +80,6 @@
         "<#508820132513054720>\nIn this lobby, generally many memes such as edgy, dank, funny content can be posted here except for the following:\n- NSFW content (belongs in #freedom-lobby)\n- Dark humor (especially involving death or intentional hatred against a certain group) (belongs in #freedom-lobby)\n- Sensitive/Offensive Content (belongs practically nowhere)\n\n:warning: If a certain meme gets too controversial from others, mods are allowed to delete the meme and/or provide warnings.",
         "<#748053732582752326>\nThis is a resource/discussion for any glitches/bugs/exploits you can discover across racing games. Other games that aren't related to racing are also open. Even if you think if the certain action may not be a glitch, they can also be posted here for discussions. The following posts will not be allowed and will be deleted and/or lead to warnings:\n- NSFW content\n- Memes that does not present any in-game glitches\n- Mods/Hacks/Addons that does not result in-game glitches", "**JOIN THE FITNESS RACE!**"
       ],
-      "color": "0x0151b0"
-    },
-        {
-      "title": "__**GT Fitness Cars / Liveries**__",
-      "description": [
-        "Support us by using these liveries below in GT Sport! "
-      ], "color": "0xC0C0C0"
-    },
-    {
-      "title": "__**GT Fitness Helmet**__",
-      "description": [
-        "https://www.gran-turismo.com/us/gtsport/user/livery/1542178/2/4828774773942125072"
-      ],
-      "image": "https://www.gran-turismo.com/gtsport/livery/4828774773942125072_23.jpg?width=400&height=225",
-      "color": "0x0151b0"
-    },
-    {
-      "title": "__**GT Fitness Racing Suit**__",
-      "description": [
-        "https://www.gran-turismo.com/us/gtsport/user/livery/1542178/3/6269644077593002000"
-      ],
-      "image": "https://www.gran-turismo.com/gtsport/livery/6269644077593002000_23.jpg?width=400&height=225",
-      "color": "0x0151b0"
-    }
-    ,
-    {
-      "title": "__**Mazda Roadster S (ND) GT Fitness Edition '15 **__",
-      "description": [
-        "https://www.gran-turismo.com/us/gtsport/user/livery/1542178/1/6206599175999586360"
-      ],
-      "image": "https://www.gran-turismo.com/gtsport/livery/6206599175999586360_23.jpg?width=400&height=225",
-      "color": "0x0151b0"
-    }
-    ,
-    {
-      "title": "__**Toyota GR Supra RZ GT Fitness Edition '19 **__",
-      "description": [
-        "https://www.gran-turismo.com/us/gtsport/user/livery/1542178/1/6062479598329824304"
-      ],
-      "image": "https://www.gran-turismo.com/gtsport/livery/6062479598329824304_23.jpg?width=400&height=225",
-      "color": "0x0151b0"
-    }
-    ,
-    {
-      "title": "__**Mitsubishi Lancer Evolution GT Fitness Edition '15**__",
-      "description": [
-        "https://www.gran-turismo.com/us/gtsport/user/livery/1542178/1/6052909449594568760"
-      ],
-      "image": "https://www.gran-turismo.com/gtsport/livery/6052909449594568760_23.jpg?width=400&height=225",
-      "color": "0x0151b0"
-    }
-    ,
-    {
-      "title": "__**Chevrolet Corvette Stingray (C7) GT Fitness Edition '14**__",
-      "description": [
-        "https://www.gran-turismo.com/us/gtsport/user/livery/1542178/1/4765459391815091248"
-      ],
-      "image": "https://www.gran-turismo.com/gtsport/livery/4765459391815091248_23.jpg?width=400&height=225",
-      "color": "0x0151b0"
-    }
-    ,
-    {
-      "title": "__**Nissan GT-R Gr.4 GT Fitness Edition **__",
-      "description": [
-        "https://www.gran-turismo.com/us/gtsport/user/livery/1542178/1/4764896439780246576"
-      ],
-      "image": "https://www.gran-turismo.com/gtsport/livery/4764896439780246576_23.jpg?width=400&height=225",
-      "color": "0x0151b0"
-    }
-    ,
-    {
-      "title": "__**BMW M4 Safety Car GT Fitness Edition **__",
-      "description": [
-        "https://www.gran-turismo.com/us/gtsport/user/livery/1542178/1/5773702756782047288"
-      ],
-      "image": "https://www.gran-turismo.com/gtsport/livery/5773702756782047288_23.jpg?width=400&height=225",
-      "color": "0x0151b0"
-    }
-        ,
-    {
-      "title": "__**DAIHATSU COPEN RJ Vision Gran Turismo GT Fitness Edition**__",
-      "description": [
-        "https://www.gran-turismo.com/us/gtsport/user/livery/1542178/1/5917822342365446200"
-      ],
-      "image": "https://www.gran-turismo.com/gtsport/livery/5917822342365446200_23.jpg?width=400&height=225",
-      "color": "0x0151b0"
-    }    ,
-    {
-      "title": "__**Nissan GT-R NISMO GT Fitness Edition '17**__",
-      "description": [
-        "https://www.gran-turismo.com/us/gtsport/user/livery/1542178/1/5774265717135246392"
-      ],
-      "image": "https://www.gran-turismo.com/gtsport/livery/5774265717135246392_23.jpg?width=400&height=225",
-      "color": "0x0151b0"
-    }    ,
-    {
-      "title": "__**Toyota 86 Gr.B Rally Car GT Fitness Edition**__",
-      "description": [
-        "https://www.gran-turismo.com/us/gtsport/user/livery/1542178/1/5765258515734102072"
-      ],
-      "image": "https://www.gran-turismo.com/gtsport/livery/5765258515734102072_23.jpg?width=400&height=225",
-      "color": "0x0151b0"
-    }    ,
-    {
-      "title": "__**Toyota FT-1 Vision Gran Turismo Gr.3 GT Fitness Edition**__",
-      "description": [
-        "https://www.gran-turismo.com/us/gtsport/user/livery/1542178/1/5764699965975724088"
-      ],
-      "image": "https://www.gran-turismo.com/gtsport/livery/5764699965975724088_23.jpg?width=400&height=225",
-      "color": "0x0151b0"
-    }    ,
-    {
-      "title": "__**KTM X-BOW R GT Fitness Edition '12**__",
-      "description": [
-        "https://www.gran-turismo.com/us/gtsport/user/livery/1542178/1/4764901945927270448"
-      ],
-      "image": "https://www.gran-turismo.com/gtsport/livery/4764901945927270448_23.jpg?width=400&height=225",
-      "color": "0x0151b0"
-    }    ,
-    {
-      "title": "__**Honda EPSON NSX GT Fitness Edition '08**__",
-      "description": [
-        "https://www.gran-turismo.com/us/gtsport/user/livery/1542178/1/4765464898564031544"
-      ],
-      "image": "https://www.gran-turismo.com/gtsport/livery/4765464898564031544_23.jpg?width=400&height=225",
-      "color": "0x0151b0"
-    }    ,
-    {
-      "title": "__**Mazda LM55 Vision Gran Turismo Gr.1 GT Fitness Edition**__",
-      "description": [
-        "https://www.gran-turismo.com/us/gtsport/user/livery/1542178/1/4765464887357898808"
-      ],
-      "image": "https://www.gran-turismo.com/gtsport/livery/4765464887357898808_23.jpg?width=400&height=225",
-      "color": "0x0151b0"
-    }    ,
-    {
-      "title": "__**Nissan GT-R Premium Edition GT Fitness Edition '17**__",
-      "description": [
-        "https://www.gran-turismo.com/us/gtsport/user/livery/1542178/1/4611779560744190008"
-      ],
-      "image": "https://www.gran-turismo.com/gtsport/livery/4611779560744190008_23.jpg?width=400&height=225",
-      "color": "0x0151b0"
-    }    ,
-    {
-      "title": "__**Red Bull X2014 Junior GT Fitness Edition '14**__",
-      "description": [
-        "https://www.gran-turismo.com/us/gtsport/user/livery/1542178/1/5764701063271679032"
-      ],
-      "image": "https://www.gran-turismo.com/gtsport/livery/5764701063271679032_23.jpg?width=400&height=225",
-      "color": "0x0151b0"
-    }    ,
-    {
-      "title": "__**De Tomaso Pantera GT Fitness Edition '71**__",
-      "description": [
-        "https://www.gran-turismo.com/us/gtsport/user/livery/1542178/1/5918386392030774320"
-      ],
-      "image": "https://www.gran-turismo.com/gtsport/livery/5918386392030774320_23.jpg?width=400&height=225",
-      "color": "0x0151b0"
-    }    ,
-    {
-      "title": "__**Gran Turismo F1500T-A GT Fitness Edition **__",
-      "description": [
-        "https://www.gran-turismo.com/us/gtsport/user/livery/1542178/1/5908816245443002416"
-      ],
-      "image": "https://www.gran-turismo.com/gtsport/livery/5908816245443002416_23.jpg?width=400&height=225",
-      "color": "0x0151b0"
-    }    ,
-    {
-      "title": "__**Toyota Sports 800 '65 GT Fitness Edition **__",
-      "description": [
-        "https://www.gran-turismo.com/us/gtsport/user/livery/1542178/1/5981344369846781497"
-      ],
-      "image": "https://www.gran-turismo.com/gtsport/livery/5981344369846781497_23.jpg?width=400&height=225",
       "color": "0x0151b0"
     }
   ]

@@ -1,6 +1,6 @@
 var extra = require('/home/runner/gtfnews/functions/misc/f_extras');
 const Discord = require('discord.js');
-var gtffile = process.env;
+var gtf = process.env;
 ////////////////////////////////////////////////////
 var emote = require('/home/runner/gtfnews/index');
 var gtfuser = require('/home/runner/gtfnews/index');
@@ -79,7 +79,7 @@ module.exports.settingsemotes = function(client) {
     ['💚', 'Xbox 360'],
     ['🟥', 'Nintendo Switch'],
   ];
-  var message = `**🟦 Playstation 5 (Unlocks <#777229097893625908>)
+  var message = `**🟦 Playstation 5
 🔵 PlayStation 4
 🔷 PlayStation 3
 🟩 Xbox Series X
@@ -113,13 +113,13 @@ module.exports.settingsemotes = function(client) {
     ['🇪', 'rFactor 1'],
     ['🇫', 'The Crew 2']
   ];
-  var message2 = `**:zero: Assetto Corsa Competizione (Unlocks <#560741220213587968>)
-:one: Assetto Corsa (Unlocks <#560741220213587968>)
+  var message2 = `**:zero: Assetto Corsa Competizione (Unlocks <#560741220213587968> | <#824106832070705202>)
+:one: Assetto Corsa (Unlocks <#560741220213587968> | <#824106832070705202>)
 :two: Burnout (Unlocks <#560741220213587968>)
 :three: BeamNG Drive (Unlocks <#560741220213587968>)
 :four: DiRT 5 (Unlocks <#560741220213587968>)
 :five: Euro Truck Simulator 2 (Unlocks <#560741220213587968>)
-:six: Gran Turismo 7 (Unlocks <#367099991862411265> | <#778712498006261780>)
+:six: Gran Turismo 7 (Unlocks <#367099991862411265>)
 :seven: Gran Turismo Sport (Unlocks <#367099991862411265>)
 :eight: Gran Turismo 1-6 (Unlocks <#367099991862411265>)
 :nine: Grand Theft Auto 5 (Unlocks <#560741220213587968>)
@@ -405,7 +405,7 @@ var funcr = function() {
 
       function rssfeed() {
         rsschannel.messages.fetch().then(messages => {
-          var messagess = messages.filter(msg => msg.author.id == gtffile.USERID);
+          var messagess = messages.filter(msg => msg.author.id == gtf.USERID);
           list = list.filter(function(x) {
             return !articlelist['list'].some(array => array.includes(x[1]));
           });
@@ -453,7 +453,7 @@ module.exports.checkgold = function(client, message) {
     if (message.channel.name.includes('debug')) {
       chance = 100
     }
-  if (!message.channel.name.includes('lobby') || message.channel.name.includes('🔞') || message.channel.name.includes('mission') || message.author.id == gtffile.USERID || chance != 100) {
+  if (!message.channel.name.includes('lobby') || message.channel.name.includes('🔞') || message.channel.name.includes('mission') || message.author.id == gtf.USERID || chance != 100) {
     return;
   }
 
@@ -462,17 +462,17 @@ module.exports.checkgold = function(client, message) {
 
   channel.messages.fetch({ limit: 1 }).then(msg => {
     var msg = msg.first();
-    if (msg.author.id == gtffile.USERID) {
+    if (msg.author.id == gtf.USERID) {
       return;
     }
     var check = 0;
     if (chance) {
       activated += 1;
       var list = [
-        [emote.platinummedal, 'platinum', 0x91cae1, emote.platinummedal + ' __**Platinum Medal**__ ' + emote.platinummedal, '**Platinum Medal**', 10],
-        [emote.goldmedal, 'gold', 0xffd700, emote.goldmedal + ' __**Gold Medal**__ ' + emote.goldmedal, '**Gold Medal**', 8],
-        [emote.silvermedal, 'silver', 0xaaa9ad, emote.silvermedal + ' __**Silver Medal**__ ' + emote.silvermedal, '**Silver Medal**', 6],
-        [emote.bronzemedal, 'bronze', 0xd2825f, emote.bronzemedal + ' __**Bronze Medal**__ ' + emote.bronzemedal, '**Bronze Medal**', 4],
+        [emote.platinummedal, 'platinum', 0x91cae1, emote.platinummedal + ' __**Platinum Medal**__ ' + emote.platinummedal, '**Platinum Medal**', 8],
+        [emote.goldmedal, 'gold', 0xffd700, emote.goldmedal + ' __**Gold Medal**__ ' + emote.goldmedal, '**Gold Medal**', 6],
+        [emote.silvermedal, 'silver', 0xaaa9ad, emote.silvermedal + ' __**Silver Medal**__ ' + emote.silvermedal, '**Silver Medal**', 4],
+        [emote.bronzemedal, 'bronze', 0xd2825f, emote.bronzemedal + ' __**Bronze Medal**__ ' + emote.bronzemedal, '**Bronze Medal**', 3],
       ];
       var index = Math.floor(Math.random() * list.length);
       var select = list[index];
@@ -486,7 +486,7 @@ module.exports.checkgold = function(client, message) {
       filter11.on('collect', r => {
         var count = r.count
 
-        if (count == 6 && !activate) {
+        if (count == select[5] && !activate) {
           activate = true;
           var embed = new Discord.MessageEmbed();
 
@@ -518,7 +518,7 @@ module.exports.checkgold = function(client, message) {
       filter11.on('end', r => {
     if (!activate) {
       var count = r.size
-      if (count >= 6) {
+      if (count >= select[5]) {
           activate = true;
           var embed = new Discord.MessageEmbed();
 
@@ -655,7 +655,7 @@ module.exports.message = function(client, title, text, color, image, channelid, 
               try {
                 if (doit) {
                 for (const user of r.users.cache.values()) {
-                  if (user.id == gtffile.USERID) {
+                  if (user.id == gtf.USERID) {
                     continue;
                   }
                   r.users.remove(user).then(
@@ -841,4 +841,64 @@ var datetime = "**Updated " + (currentdate.getUTCMonth()+1) + "/"
     desc.push("\n" + datetime)
   extra.message(client, "__**" + name + "**__", desc.join("\n"), "0x808080", "", '802245013287206942', [], index);
   }
+}
+
+module.exports.rainbowcolors = function(client) {
+  var colors = [0xFF0000, 0xFF7F00,0xFFFF00,0x00FF00,  0x0000FF, 0xBA5CE3,0x4B0082]
+var role = client.guilds.cache.get(gtf.SERVERID).roles.cache.find(r => r.name === "J24681357 License");
+var index = 0
+
+setInterval(function(){
+  if (index >= colors.length) {
+    index = 0
+  }
+  role.edit({
+        color: colors[index]
+      })
+    index++
+}, 5000)
+
+}
+
+module.exports.penalty = function(client, msg) {
+  var author = msg.channel.guild.members.cache.get(msg.member.user.id)
+  var embed = new Discord.MessageEmbed();
+  if (gtfuser.gtfbotconfig["penalty"] >= 1) {
+    require(gtf.EMBED).error('❌ One Penalty At A Time', 'A penalty is already in progress.', embed, msg, {id:msg.author.id});
+    return
+  }
+   if (!author.roles.cache.find(r => r.name === "Moderators")) {
+    require(gtf.EMBED).error('❌ Penalty Invalid', 'Only moderators can give out penalities.', embed, msg, {id:msg.author.id});
+    return
+  }
+  var user = client.guilds.cache.get(gtf.SERVERID).members.cache.get(msg.data.options[0]["value"])
+  var time = parseInt(msg.data.options[1]["value"])
+var role = client.guilds.cache.get(gtf.SERVERID).roles.cache.find(r => r.name === "Muted");
+
+  if (user.roles.cache.find(r => r.name === "Moderators")) {
+    require(gtf.EMBED).error('❌ Penalty Invalid', 'Penalties can not be given to moderators.', embed, msg, {id:msg.author.id});
+    return
+  }
+  if (user.user.bot) {
+    require(gtf.EMBED).error('❌ Penalty Invalid', 'Penalties can not be given to bots.', embed, msg, {id:msg.author.id});
+    return
+  }
+  embed.setColor(0xff0000);
+  if (!gtftools.betweenInt(time, 10, 300)) {
+    require(gtf.EMBED).error('❌ Penalty Invalid', 'Penalties must be between 10 and 300 seconds.', embed, msg, {id:msg.author.id});
+    return
+  }
+  
+  embed.setDescription(emote.slowdown1 + emote.slowdown2 + " **" + "<@" + user.id + "> " + "| Penalty +" + time + ".000" + "** " + emote.slowdown1 + emote.slowdown2)
+  gtfuser.gtfbotconfig["penalty"]++
+  msg.channel.send("<@" + user.id + ">",embed)
+
+setTimeout(function() {
+user.roles.add(role).catch(console.error)
+setTimeout(function(){
+
+user.roles.remove(role).catch(console.error)
+ gtfuser.gtfbotconfig["penalty"] = 0
+}, time * 1000)
+}, 1*1000)
 }

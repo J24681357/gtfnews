@@ -136,12 +136,11 @@ module.exports.settingsemotes = function(client) {
 
   setTimeout(function() {extra.message(client, title2, message2, '', '', '437070477157072898', reactions2, 2)}, 2000)
   var title3 = '__**Channels**__';
-  var reactions3 = [['🔞', '🔞-enabled'], ['🚙', '🚙-enabled'], ['1️⃣', '🏁-disabled'], ['2️⃣', '⚙-disabled'], ['📊', '📊-enabled']];
+  var reactions3 = [['🔞', '🔞-enabled'], ['🚙', '🚙-enabled'], ['1️⃣', '🏁-disabled'], ['2️⃣', '⚙-disabled']];
   var message3 = `**🔞 Enable 18+ Channels
 :blue_car: Enable <#563191263650775052>
 :one: Disable <#432667283031195648> & <#687872420933271577>
 :two: Disable <#327526878791598080>
-📊 Enable GTF Stats
 
 :question: These are some text channels/categories that you can enable/disable in GT Fitness.
 :question: Role is added successfully if it toggles back to its previous number.**`;
@@ -216,7 +215,7 @@ module.exports.loadfeeds = function(client) {
   }
   extra.feed('motor1news', 'https://www.motor1.com/rss/news/all/',  motor1list, 'Motor 1 News', '760412129680424961', 9, client, 'https', true);
   
-
+/*
   function gtplist(data) {
       return ('`' + data + '`')
         .split('\n')
@@ -230,7 +229,7 @@ module.exports.loadfeeds = function(client) {
         );
     }
 
-    extra.feed('gtpnews', 'https://www.gtplanet.net/feed/', gtplist, 'GTPlanet', '310599531777622017', 9, client, 'https', true);
+    extra.feed('gtpnews', 'https://www.gtplanet.net/feed/', gtplist, 'GTPlanet', '310599531777622017', 9, client, 'https', true); */
   /*
   
   function gtplist(data) {
@@ -310,7 +309,7 @@ module.exports.loadfeeds = function(client) {
     }
 
     extra.feed('gtpnews', 'https://www.gtplanet.net/feed/', gtplist, 'GTPlanet', '310599531777622017', 9, client, 'https', true);
-  }, 660000);
+  }, 720000);
 
   setInterval(function() {
     function gttwitterlist(data) {
@@ -333,31 +332,30 @@ module.exports.loadfeeds = function(client) {
   }, 640000);
 };
 
-module.exports.galleryreacts = function(msg) {
-    if (msg.guild === null) {
+module.exports.galleryreacts = function(emojis, msg) {
+  if (msg.guild === null) {
     return
   }
   if (msg.channel.name.includes('meme') && (msg.attachments.size >= 1 || msg.content.includes("https://") || msg.content.includes("http://"))) {
-    msg.react("👍").then(() => setTimeout(function (){
-      msg.react("👎")
-      },1000)).catch(() => console.error('One of the emojis failed to react.'));
+    emojis.unshift("👍")
+    emojis.unshift("👎")
       return
   }
-  if (msg.channel.name.includes('music') && (msg.attachments.size >= 1 || msg.content.includes("https://") || msg.content.includes("http://"))) {
-    msg.react("🎵")
+  if (msg.channel.name.includes('music') && (msg.attachments.size >= 1 || msg.content.includes("https://") || msg.content.includes("http://")) ) {
+    emojis.unshift("🎵")
     return
   }
-  if (msg.channel.name.includes('furry') && msg.attachments.size >= 1) {
+  if (msg.channel.name.includes('furry') && (msg.attachments.size >= 1 || msg.content.includes("https://") || msg.content.includes("http://"))) {
     var list = ["❤","🧡","💛","💚","💙","💜","🤎","🖤","🤍"]
-    msg.react(list[Math.floor(Math.random() * list.length)]);
+    emojis.unshift(list[Math.floor(Math.random() * list.length)]);
     return
   }
     if (msg.channel.name.includes('updates')) {
-    msg.react("⭐");
+    emojis.push("⭐");
     return
   }
-  if (msg.channel.name.includes('photos') && msg.attachments.size >= 1) {
-    msg.react('❤');
+  if (msg.channel.name.includes('photos') && (msg.attachments.size >= 1 || msg.content.includes("https://") || msg.content.includes("http://"))) {
+    emojis.unshift('❤');
     return
   } else {
     return;
@@ -444,7 +442,18 @@ var funcr = function() {
 };
 }
 
-module.exports.checkgold = function(client, message) {
+module.exports.checkgold = function(emojis, client, message) {
+  var list = [
+        [emote.platinummedal, 'platinum', 0x91cae1, emote.platinummedal + ' __**Platinum Medal**__ ' + emote.platinummedal, '**Platinum Medal**', 8],
+        [emote.goldmedal, 'gold', 0xffd700, emote.goldmedal + ' __**Gold Medal**__ ' + emote.goldmedal, '**Gold Medal**', 6],
+        [emote.silvermedal, 'silver', 0xaaa9ad, emote.silvermedal + ' __**Silver Medal**__ ' + emote.silvermedal, '**Silver Medal**', 4],
+        [emote.bronzemedal, 'bronze', 0xd2825f, emote.bronzemedal + ' __**Bronze Medal**__ ' + emote.bronzemedal, '**Bronze Medal**', 3],
+      ];
+      var index = Math.floor(Math.random() * list.length);
+      var select = list[index];
+      select[0] = select[0].split(':')[2];
+      select[0] = select[0].slice(0, select[0].length - 1);
+
   if (message.guild === null) {
     return
   }
@@ -459,29 +468,21 @@ module.exports.checkgold = function(client, message) {
 
   var channelid = message.channel.id;
   var channel = client.guilds.cache.get('239493425131552778').channels.cache.get(channelid);
+  if (chance) {
+      emojis.push(select[0]);
+  }
 
   channel.messages.fetch({ limit: 1 }).then(msg => {
     var msg = msg.first();
-    if (msg.author.id == gtf.USERID) {
-      return;
-    }
     var check = 0;
     if (chance) {
       activated += 1;
-      var list = [
-        [emote.platinummedal, 'platinum', 0x91cae1, emote.platinummedal + ' __**Platinum Medal**__ ' + emote.platinummedal, '**Platinum Medal**', 8],
-        [emote.goldmedal, 'gold', 0xffd700, emote.goldmedal + ' __**Gold Medal**__ ' + emote.goldmedal, '**Gold Medal**', 6],
-        [emote.silvermedal, 'silver', 0xaaa9ad, emote.silvermedal + ' __**Silver Medal**__ ' + emote.silvermedal, '**Silver Medal**', 4],
-        [emote.bronzemedal, 'bronze', 0xd2825f, emote.bronzemedal + ' __**Bronze Medal**__ ' + emote.bronzemedal, '**Bronze Medal**', 3],
-      ];
-      var index = Math.floor(Math.random() * list.length);
-      var select = list[index];
-      select[0] = select[0].split(':')[2];
-      select[0] = select[0].slice(0, select[0].length - 1);
-      msg.react(select[0]);
+
       var filterzero = (reaction, user) => reaction.emoji.name === select[1] && activated == 1;
       const filter11 = msg.createReactionCollector(filterzero, { time: 1000 * 180 });
       var activate = false;
+      
+    var timer = new Date()
 
       filter11.on('collect', r => {
         var count = r.count
@@ -496,15 +497,18 @@ module.exports.checkgold = function(client, message) {
           });
           embed.setTitle(select[3]);
           embed.setDescription(msg.toString());
-          embed.setColor(select[2]);
+          embed.setColor(select[2])
+          var elapsed = gtftools.milltominandsecs(new Date() - timer)
           embed.addField('Author', '<@' + msg.author.id + '>', true);
           embed.addField('Channel', '<#' + channelid + '>', true);
+          embed.addField('Time Elapsed', elapsed, true);
           embed.addField('Link', "https://discord.com/channels/" + "239493425131552778" + "/" + channelid + "/" + msg.id, true);
           var userd = msg.guild.members.cache.get(msg.author.id);
           embed.setAuthor(userd.user.username, userd.user.displayAvatarURL());
           var embed2 = new Discord.MessageEmbed();
           embed2.setColor(select[2]);
-          embed2.setDescription('Congrats, ' + userd.user.username + "'s message has earned the " + select[4] + '!');
+          embed2.setDescription('Congrats, ' + userd.user.username + "'s message has earned the " + select[4] + '!' 
+          + "\n" + "**Time Elapsed:** " + elapsed);
           channel.send(embed2);
           setTimeout(function() {
             client.guilds.cache
@@ -529,14 +533,18 @@ module.exports.checkgold = function(client, message) {
           embed.setTitle(select[3]);
           embed.setDescription(msg.toString());
           embed.setColor(select[2]);
+          
+          var elapsed = gtftools.milltominandsecs(new Date() - timer)
           embed.addField('Author', '<@' + msg.author.id + '>', true);
           embed.addField('Channel', '<#' + channelid + '>', true);
+          embed.addField('Time Elapsed', elapsed, true);
           embed.addField('Link', "https://discord.com/channels/" + "239493425131552778" + "/" + channelid + "/" + msg.id, true);
           var userd = msg.guild.members.cache.get(msg.author.id);
           embed.setAuthor(userd.user.username, userd.user.displayAvatarURL());
           var embed2 = new Discord.MessageEmbed();
           embed2.setColor(select[2]);
-          embed2.setDescription('Congrats, ' + userd.user.username + "'s message has earned the " + select[4] + '!');
+          embed2.setDescription('Congrats, ' + userd.user.username + "'s message has earned the " + select[4] + '!' 
+          + "\n" + "**Time Elapsed:** " + elapsed);
           channel.send(embed2);
           setTimeout(function() {
             client.guilds.cache
@@ -712,7 +720,7 @@ module.exports.message = function(client, title, text, color, image, channelid, 
   });
 };
 
-module.exports.gtfstats = function(list, client) {
+module.exports.gtfstats = function(client) {
    var server = client.guilds.cache.get('239493425131552778');
    var totmembers = server.members.cache.filter(member => !member.user.bot)
    var size = totmembers.size
@@ -758,56 +766,38 @@ module.exports.gtfstats = function(list, client) {
   })
 
   //////////
-var categories = server.channels.cache.filter((c) => c.type === "category").size;
-var text = server.channels.cache.filter((c) => c.type === "text").size;
+  var categories = server.channels.cache.filter((c) => c.type === "category").size;
+  var text = server.channels.cache.filter((c) => c.type === "text").size;
 
-  //////////
+   var list = [["**Total GTF Players:**",size], 
+   ["**Novice Players:**", novice],
+    ["**B Players:**", b],
+     ["**A Players:**", a],
+     ["**IC Players:**", ic], 
+     ["**IB Players:**", ib], 
+     ["**IA Players:**", ia],
+     ["**S Players:**", s],
+    ["**J Players:**", j],
+      ["**J2 Players:**", j2], 
+      [" ", " "],
+    ["**Categories:**", categories], 
+    ["**Text Channels:**", text]]
 
+  var currentdate = new Date(); 
+var datetime = "**Updated " + (currentdate.getUTCMonth()+1) + "/"
+                +   currentdate.getUTCDate() + "/" 
+                + currentdate.getUTCFullYear() + "**"
 
-   var list = [["Total GTF Players:",size], 
-   ["Novice Players:", novice],
-    ["B Players:", b],
-     ["A Players:", a],
-     ["IC Players:", ic], 
-     ["IB Players:", ib], 
-     ["IA Players:", ia],
-     ["S Players:", s],
-      ["J Players:", j],
-       ["J2 Players:", j2], 
-       ["Categories:", categories], ["Text Channels:", text]]
-
-   var index = 0
-  gtftools.interval(function(){
-      start(index)
-    index++
-  }, 1000, list.length)
-
-  function start(index) {
-    var regex = new RegExp("^"+list[index][0],"g") 
-  let channel = server.channels.cache.find(c => c.name.match(regex))
-  if (!channel) {
-   server.channels.create(list[index].join(" "), { type: 'voice'})
-  .then(channel => {
-    let category = server.channels.cache.find(c => c.name == "GTF Stats 📊" && c.type == "category")
-
-    if (!category) throw new Error("Category channel does not exist");
-    channel.setParent(category.id);
-  }).catch(console.error);
-  } else {
-channel.setName(list[index].join(" "))
-  }
-  }
-
+  extra.message(client, "📊 GT Fitness Stats", list.map(x => x.join(" ")).join("\n") + "\n\n" + datetime, '', '', '829404376413765642', "", 1)
 }
 
-module.exports.hi = function(msg) {
+module.exports.hi = function(emojis, msg) {
   if (msg.content.length == 2 &&(msg.content == "hi" || msg.content == "Hi")) {
-    
-    msg.react(emote.hi.split(":")[2].split(">")[0])
+    emojis.push(emote.hi.split(":")[2].split(">")[0])
     return
   }
   if (msg.content.length == 3 && (msg.content == "hi!" || msg.content == "Hi!")) {
-    msg.react(emote.hi.split(":")[2].split(">")[0])
+    emojis.push(emote.hi.split(":")[2].split(">")[0])
     return
   }
 };

@@ -38,7 +38,7 @@
       "title": "__**License Rewards**__",
       "description": [
         "__**B License | 1,000pts**__\nB License Commands\n<#367099567612755969>\n<#824107462814728202>\n<#449962974883610630>\n<#323132515596500992>\n<#706260954249166939>\nMusic (VC)\nDyno Tags - !tag",
-        "__**A License | 2,500pts**__\nA License Commands\n<#360871750461947905>\n<#694367801967902802>\n<#318848057531695125>\n<#729936217306562570>\nNovice (VC)\nAbility to speak in Music (VC)",
+        "__**A License | 2,500pts**__\nA License Commands\n<#360871750461947905>\n<#694367801967902802>\n<#318848057531695125>\n<#729936217306562570>\n<#829404376413765642>\nNovice (VC)\nAbility to speak in Music (VC)",
         "__**IC License | 5,000pts**__\nIC License Commands\n<#802245013287206942>\n<#451468982738878465>\n<#529376959239815168>\nAdvertise in <#644052910334017556>\nAmateur (VC)",
         "__**IB License | 10,000pts**__\nIB License Commands\n<#361638649718374411>\n<#696488598320709633>\n<#748053732582752326>\nPro (VC)",
         "__**IA License | 25,000pts**__\nIA License Commands\n<#760412129680424961>\n<#665477242553630720>\nEndurance (VC)",
@@ -80,6 +80,14 @@
         "<#508820132513054720>\nIn this lobby, generally many memes such as edgy, dank, funny content can be posted here except for the following:\n- NSFW content (belongs in #freedom-lobby)\n- Dark humor (especially involving death or intentional hatred against a certain group) (belongs in #freedom-lobby)\n- Sensitive/Offensive Content (belongs practically nowhere)\n\n:warning: If a certain meme gets too controversial from others, mods are allowed to delete the meme and/or provide warnings.",
         "<#748053732582752326>\nThis is a resource/discussion for any glitches/bugs/exploits you can discover across racing games. Other games that aren't related to racing are also open. Even if you think if the certain action may not be a glitch, they can also be posted here for discussions. The following posts will not be allowed and will be deleted and/or lead to warnings:\n- NSFW content\n- Memes that does not present any in-game glitches\n- Mods/Hacks/Addons that does not result in-game glitches", "**JOIN THE FITNESS RACE!**"
       ],
+      "color": "0x0151b0"
+    },
+    {
+      "title": "__**Bot Commands Showcase**__",
+      "description": [
+        "Quick overview of ", "**JOIN THE FITNESS RACE!**"
+      ],
+      "image": "",
       "color": "0x0151b0"
     }
   ]

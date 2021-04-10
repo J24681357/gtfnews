@@ -2,13 +2,15 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 var gtf = process.env;
 ////////////////////////////////////////////////////
-var extra = require("/home/runner/gtfnews/functions/misc/f_extras");
+var extra = require("./functions/misc/f_extras");
 var gtfuser = require("/home/runner/gtfnews/index");
 var emote = require("/home/runner/gtfnews/index");
 var fs = require("fs");
 var gtftools = require("/home/runner/gtfnews/functions/misc/f_tools")
 var gtfbot = JSON.parse(fs.readFileSync("./users/botconfig.json", "utf8"));
-module.exports.gtfbotconfig = gtfbot;
+var actions = JSON.parse(fs.readFileSync("./config/actions.json", "utf8"));
+module.exports.gtfbotconfig = actions;
+
 
 client.commands = new Discord.Collection();
 var date = new Date();
@@ -170,25 +172,25 @@ client.on("ready", () => {
 
   extra.caremotes(client);
 
-  /*setInterval(function() {
-    extra.gtfstats(1, client)
+  setInterval(function() {
+    extra.gtfstats(client)
   }, 5 * 60 * 1000)
-  */
+
   setInterval(function() {
     extra.gtpstats("GTPlanet: GT7 Active Threads", "https://www.gtplanet.net/forum/board/gran-turismo-7/",1, client)
-  }, 6 * 60 * 1000)
+  }, 1800000)
   setInterval(function() {
     extra.gtpstats("GTPlanet: GT Sport Active Threads", "https://www.gtplanet.net/forum/board/gran-turismo-sport/", 2, client)
-  }, 370000)
+  }, 1860000)
     setInterval(function() {
     extra.gtpstats("GTPlanet: Auto News Active Threads", "https://www.gtplanet.net/forum/board/auto-news.103/", 3, client)
-  }, 380000)
+    }, 1920000)
       setInterval(function() {
     extra.gtpstats("GTPlanet: Cars In General Active Threads", "https://www.gtplanet.net/forum/board/cars-in-general.7/", 4, client)
-  }, 390000) 
+      }, 1980000) 
   setInterval(function() {
     extra.gtpstats("GTPlanet: Motorsports Active Threads", "https://www.gtplanet.net/forum/board/motorsport.15/", 5, client)
-  }, 400000)
+  }, 2040000)
 
   //extra.rainbowcolors(client)
   var role = client.guilds.cache.get(gtf.SERVERID).roles.cache.get('458024122857947148')
@@ -220,16 +222,17 @@ client.api.applications(gtf.USERID).guilds(gtf.SERVERID).commands.post({
 
 client.on("message", msg => {
   function activate() {
+    var emojis = []
 
-    if (msg.member.roles.cache.find(r => r.name === "Muted")) {
+  /*if (msg.member.roles.cache.find(r => r.name === "Muted")) {
       msg.delete({})
-    }
+  }*/
   if (msg.guild === null) {
     return
   } 
-    extra.hi(msg);
+    extra.hi(emojis, msg);
 
-    extra.checkgold(client, msg);
+    extra.checkgold(emojis, client, msg);
     var author = msg.author.id;
     var member = msg.guild.members.cache.get(author);
 
@@ -247,51 +250,15 @@ client.on("message", msg => {
     //e
 
     //gallaries
-    extra.galleryreacts(msg);
-    //emotes
-    //hi
+    
+    extra.galleryreacts(emojis, msg);
+   gtftools.ratelimitReactions(emojis, msg)
   }
-  gtfuser.gtfbotconfig["executions"]++;
-  fs.writeFileSync(
-    "/home/runner/gtfnews/users/botconfig.json",
-    JSON.stringify(gtfuser.gtfbotconfig),
-    function(err, result) {
-      if (err) console.log("error", err);
-    }
-  );
-  if (gtfuser.gtfbotconfig["executions"] >= 3) {
-    console.log("WAITING");
-    setTimeout(function() {
-      activate(),
-        1000 * gtfuser.gtfbotconfig["executions"];
-      gtfuser.gtfbotconfig["executions"]--;
-      fs.writeFileSync(
-        "/home/runner/gtfnews/users/botconfig.json",
-        JSON.stringify(gtfuser.gtfbotconfig),
-        function(err, result) {
-          if (err) console.log("error", err);
-        }
-      );
-    });
-  } else {
     activate()
-    if (gtfuser.gtfbotconfig["executions"] == 1) {
-      setTimeout(function() {
-        gtfuser.gtfbotconfig["executions"] = 0
-        fs.writeFileSync(
-          "/home/runner/gtfnews/users/botconfig.json",
-          JSON.stringify(gtfuser.gtfbotconfig),
-          function(err, result) {
-            if (err) console.log("error", err);
-          }
-        );
-      }, 5000);
-    }
-  }
+
 });
 
 client.ws.on('INTERACTION_CREATE', async interaction => {
-  console.log(interaction)
   interaction.guild = client.guilds.cache.get(interaction.guild_id)
    interaction.channel = client.channels.cache.get(interaction.channel_id)
    interaction.author = interaction.channel.guild.members.cache.get(interaction.member.user.id).user

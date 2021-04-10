@@ -3,11 +3,50 @@ var gtftools = require("/home/runner/gtfnews/functions/misc/f_tools");
 
 const Discord = require("discord.js");
 const client = new Discord.Client();
+var gtf = process.env
 ////////////////////////////////////////////////////
 
 module.exports.randomInt = function(min, max) {
   return Math.floor(min + Math.random()*(max + 1 - min))
 }
+
+module.exports.ratelimitReactions = function(emojis, msg) {
+    if (emojis.length == 0) {
+      return
+    } else {
+      var timer;
+      var i;
+      var check = function() {
+        if (emojis.length == 0) {
+          clearInterval(timer)
+          clearInterval(i)
+          require(gtf.MAIN).gtfbotconfig["reactionslimit"] = false
+        }
+      }
+      
+      var repeat = function() {
+        if (require(gtf.MAIN).gtfbotconfig["reactionslimit"] == false) {
+
+        require(gtf.MAIN).gtfbotconfig["reactionslimit"] = true        
+         timer = setInterval(function() {
+            if (emojis.length != 0) {
+        msg.react(emojis.pop())
+           }
+        check()
+      }, 1200)
+      
+        }
+      }
+
+      if (require(gtf.MAIN).gtfbotconfig["reactionslimit"] == false) {
+        repeat()
+      } else {
+       i = setInterval(function() {repeat()}, 1000)
+      }
+
+    }
+}
+
 
 module.exports.removeDups = function(names) {
   let unique = {};

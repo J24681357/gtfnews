@@ -47,6 +47,43 @@ module.exports.ratelimitReactions = function(emojis, msg) {
     }
 }
 
+module.exports.ratelimitRoles = function(roles, role_check, user) {
+    if (roles.length == 0) {
+      return
+    } else {
+      var timer;
+      var i;
+      var check = function() {
+        if (roles.length == 0) {
+          clearInterval(timer)
+          clearInterval(i)
+          require(gtf.MAIN).gtfbotconfig["reactionslimit"] = false
+        }
+      }
+      
+      var repeat = function() {
+        if (require(gtf.MAIN).gtfbotconfig["reactionslimit"] == false) {
+
+        require(gtf.MAIN).gtfbotconfig["reactionslimit"] = true        
+         timer = setInterval(function() {
+            if (emojis.length != 0) {
+        msg.react(emojis.pop())
+           }
+        check()
+      }, 1200)
+      
+        }
+      }
+
+      if (require(gtf.MAIN).gtfbotconfig["reactionslimit"] == false) {
+        repeat()
+      } else {
+       i = setInterval(function() {repeat()}, 1000)
+      }
+
+    }
+}
+
 
 module.exports.removeDups = function(names) {
   let unique = {};

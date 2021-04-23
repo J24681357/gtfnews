@@ -11,7 +11,6 @@ var gtfbot = JSON.parse(fs.readFileSync("./users/botconfig.json", "utf8"));
 var actions = JSON.parse(fs.readFileSync("./config/actions.json", "utf8"));
 module.exports.gtfbotconfig = actions;
 
-
 client.commands = new Discord.Collection();
 var date = new Date();
 
@@ -172,9 +171,9 @@ client.on("ready", () => {
 
   extra.caremotes(client);
 
-  setInterval(function() {
+  //setInterval(function() {
     extra.gtfstats(client)
-  }, 5 * 60 * 1000)
+  //}, 5 * 60 * 1000)
 
   setInterval(function() {
     extra.gtpstats("GTPlanet: GT7 Active Threads", "https://www.gtplanet.net/forum/board/gran-turismo-7/",1, client)

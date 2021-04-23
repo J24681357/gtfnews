@@ -78,6 +78,7 @@ module.exports.settingsemotes = function(client) {
     ['🟢', 'Xbox One'],
     ['💚', 'Xbox 360'],
     ['🟥', 'Nintendo Switch'],
+    ['🔺', 'PC']
   ];
   var message = `**🟦 Playstation 5
 🔵 PlayStation 4
@@ -86,6 +87,7 @@ module.exports.settingsemotes = function(client) {
 🟢 Xbox One
 💚 Xbox 360
 🟥 Nintendo Switch
+🔺 PC
 
 :question: You can add your own roles with the reactions below. You can mention these roles for those who have these consoles (or planning on).
 :question: Role is added successfully if it toggles back to its previous number.**`;
@@ -704,10 +706,10 @@ module.exports.message = function(client, title, text, color, image, channelid, 
               var timer = setTimeout(function() {
             doit = true
           }, 5000)
-              } 
+                }
               } catch (error) {
                 console.error(error);
-            }
+              }
 
             });
           };
@@ -788,7 +790,21 @@ var datetime = "**Updated " + (currentdate.getUTCMonth()+1) + "/"
                 +   currentdate.getUTCDate() + "/" 
                 + currentdate.getUTCFullYear() + "**"
 
-  extra.message(client, "📊 GT Fitness Stats", list.map(x => x.join(" ")).join("\n") + "\n\n" + datetime, '', '', '829404376413765642', "", 1)
+  extra.message(client, "__📊 GT Fitness Stats__", list.map(x => x.join(" ")).join("\n") + "\n\n" + datetime, '', '', '829404376413765642', "", 1)
+  setTimeout(function(){
+     var members = server.members.cache.array(); // Create an array with every member
+var latest = members.sort((a, b) => b.joinedAt - a.joinedAt)[0]
+/*var channel = server.channels.cache.get("239493425131552778");
+var count = 0
+channel.messages.fetch({}).then(msg => msg.forEach(m=>{count++})).then(function(){
+  console.log(count)
+})*/
+
+list = [
+  ["**Latest Member:**", "<@" + latest.user.id + ">"]
+  ]
+    extra.message(client, "__📊 GT Fitness Stats__", list.map(x => x.join(" ")).join("\n") + "\n\n" + datetime, '', '', '829404376413765642', "", 2)
+  }, 1000)
 }
 
 module.exports.hi = function(emojis, msg) {
@@ -846,7 +862,7 @@ setInterval(function(){
         color: colors[index]
       })
     index++
-}, 5000)
+}, 10 * 1000)
 
 }
 

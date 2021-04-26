@@ -191,7 +191,7 @@ client.on("ready", () => {
     extra.gtpstats("GTPlanet: Motorsports Active Threads", "https://www.gtplanet.net/forum/board/motorsport.15/", 5, client)
   }, 2040000)
 
-  //extra.rainbowcolors(client)
+  extra.rainbowcolors(client)
   var role = client.guilds.cache.get(gtf.SERVERID).roles.cache.get('458024122857947148')
   role.members.map(
     m => m.roles.remove(role).catch(console.error)

@@ -54,6 +54,9 @@ module.exports.updatemanual = function(client) {
   var manual = JSON.parse(fs.readFileSync('./text/manual.json', 'utf8'))['manual'];
   var size = manual.length;
   var index = 0;
+  if (index >= size) {
+    console.log("Manual Updated")
+  }
   gtftools.interval(
     function() {
       extra.message(client, manual[index]['title'], manual[index]['description'].join('\n\n'), manual[index]['color'], manual[index]['image'], '704114222690336800', [], index + 1);
@@ -848,21 +851,41 @@ var datetime = "**Updated " + (currentdate.getUTCMonth()+1) + "/"
   extra.message(client, "__**" + name + "**__", desc.join("\n"), "0x808080", "", '802245013287206942', [], index);
   }
 }
-
 module.exports.rainbowcolors = function(client) {
-  var colors = [0xFF0000, 0xFF7F00,0xFFFF00,0x00FF00,  0x0000FF, 0xBA5CE3,0x4B0082]
+ // https://github.com/3ijtKwijt/Discord-Rainbow-Role/
+   const size = 12;
+//const rainbow = new Array(size);
 var role = client.guilds.cache.get(gtf.SERVERID).roles.cache.find(r => r.name === "J24681357 License");
-var index = 0
 
+
+var rainbow = [0x8012ed, 0xbf01bf,0xed1280, 0xff4040,
+  0xed7f12, 0xbfbf01,
+  0x80ed12, 0x40ff40,
+  0x12ed7f, 0x01bfbf,
+  0x1280ed, 0x4040ff]
+function sin_to_hex(i, phase) {
+    var sin = Math.sin(Math.PI / size * 2 * i + phase);
+    var int = Math.floor(sin * 127) + 128;
+    var hex = int.toString(16);
+
+    return hex.length === 1 ? '0' + hex : hex;
+}
+
+var place = 0;
 setInterval(function(){
-  if (index >= colors.length) {
-    index = 0
-  }
+
   role.edit({
-        color: colors[index]
-      })
-    index++
-}, 10 * 1000)
+        color: rainbow[place]
+  })
+      console.log("color changed")
+
+
+    if (place == (size - 1)) {
+        place = 0;
+    } else {
+        place++;
+    }
+}, 60 * 1000)
 
 }
 
